@@ -5,7 +5,7 @@ wikiPageName: Home-Page
 menu: wiki
 ---
 
-Welcome to the hello wiki! :sdfasdfasdf
+Welcome to the hello wiki 101 lesson! :sdfasdfasdf
 
 
 # First level header
