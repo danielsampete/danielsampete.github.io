@@ -5,7 +5,7 @@ wikiPageName: Home-Page
 menu: wiki
 ---
 
-Welcome to the hello wiki! :  : : :+1: 
+Welcome to the hello wiki! :sdfasdfasdf
 ## safsadf
 # asd
 ### asdfasdf
