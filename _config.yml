@@ -1,5 +1,8 @@
 name: Hank Quinlan, Horrible Cop
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
 permalink: /blog/:year/:month/:day/:title
 
 wikiToJekyll:
@@ -45,12 +48,3 @@ wikiToJekyll:
   # commit and push to Jekyll repository after wiki synchronisation
   commit_and_push: true
 
-kramdown:
-  auto_ids:       true
-  footnote_nr:    1
-  entity_output:  as_char
-  toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo
-  input:          GFM
-  hard_wrap:      false
-  footnote_nr:    1
