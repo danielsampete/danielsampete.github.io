@@ -76,7 +76,7 @@ def copy_wiki_pages
       # write the new file with yaml front matter
       open(wikiPagePath, 'w') do |newWikiPage|
         newWikiPage.puts "---"
-        newWikiPage.puts "layout: default"
+        newWikiPage.puts "layout: documentation"
         newWikiPage.puts "title: #{wikiPageTitle}"
         # used to transform links
         newWikiPage.puts "wikiPageName: #{wikiPageName}"

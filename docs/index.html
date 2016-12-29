@@ -1,0 +1,24 @@
+---
+layout: documentation
+title: Docs of hello
+---
+<h3> All WIKI PAGES </h3>
+<ul class="wikiMenu">
+  {% for p in site.pages %}
+    {% if p.menu == "wiki" %}
+    <li><a class="post-link" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<h4> Based on a data file </h4>
+{% assign guides_size = site.data.guides | size | minus: 1 %}
+
+
+
+  {% assign guide = site.data.guides[0] %}
+  {% assign guide_pg_length = guide.pages | size | minus: 1 %}
+  <ul><li>{{guide.title}}</li>
+    <li><a class="post-link" href="{{ guide.pages[index_j].path | prepend: site.baseurl }}">{{guide.pages[index_j].name}}</a></li>
+  </ul>
+

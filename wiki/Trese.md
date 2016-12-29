@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: documentation
 title: Trese
 wikiPageName: Trese
 menu: wiki

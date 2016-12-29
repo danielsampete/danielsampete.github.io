@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: documentation
 title: Home
 wikiPageName: Home
 menu: wiki
