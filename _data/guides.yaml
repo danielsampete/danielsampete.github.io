@@ -3,17 +3,17 @@
   pages:
   - id: docs_getting_started
     name: Overview
-    path: wiki/Home-Page
+    path: /wiki/Home-Page
   - id: docs_install
     name: Home Page
-    path: wiki/Home
+    path: /wiki/Home
   - id: docs_usage
     name: Trese
-    path: wiki/Trese
+    path: /wiki/Trese
 
 - id: docs_cli
   title: CLI 
   pages:
   - id: docs_yarn_workflow
     name: CLI
-    path: wiki/eeee
+    path: /wiki/eeee
