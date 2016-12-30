@@ -1,35 +1,87 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>{{ page.title }}</title>
-    
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/main_new.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
   </head>
 
 
   <body>
-    <nav>
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/about">About</a></li>
-<li><a href="/cv">CV</a></li>
-<li><a href="/blog">Blog</a></li>
-<li><a href="/docs">Docs</a></li>
-</ul>
-    </nav>
-<div class="container">
 
-  {{ content }}
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index.html">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/docs/">Docs</a></li>
+      </ul>
+      
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="row">
+  <!-- <div class="nav-side-menu">
+    <div class="brand">Brand Logo</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content collapse out">
+            <li>
+                <a href="/index.html">
+                    <i class="fa fa-dashboard fa-lg"></i> Home
+                </a>
+            </li>
+            <li>
+                <a href="/about">
+                    <i class="fa fa-dashboard fa-lg"></i> About
+                </a>
+            </li>
+            <li>
+                <a href="/docs">
+                    <i class="fa fa-dashboard fa-lg"></i> Docs
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div> -->
+<div class="container" id="main">
+    <div class="row">
+        <div class="col-md-12">
+            {{ content }}
+        </div>
+    </div>
+</div>
+
 
 </div>
+
+
   
-  <footer>
-   <ul>
-   <li><a href="mailto:danielsamfdo@gmail.com">email</a></li>
-   <li><a href="https://github.com/danielsamfdo">github.com/danielsamfdo</a></li>
-   </ul>
-  </footer>
+
   </body>
 
 </html>
+<head>
+    
+</head>

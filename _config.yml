@@ -36,15 +36,15 @@ wikiToJekyll:
   #
   # Example : https://github.com/userName/repositoryName.wiki.git
 
-  wiki_repository_url: https://github.com/MobilityFirst/GNS.wiki.git
+  wiki_repository_url: https://github.com/danielsampete/hello.wiki.git
 
   # wiki submodule folder
   # the underscore makes sure that this folder is ignored by Jekyll
-  wiki_source: "_wiki2"
+  wiki_source: "_wiki"
 
   # wiki Jekyll generated pages destination folder
-  wiki_dest: "wiki2"
+  wiki_dest: "wiki"
 
   # commit and push to Jekyll repository after wiki synchronisation
-  commit_and_push: true
+  commit_and_push: false
 

@@ -1,39 +1,89 @@
 ---
 layout: default
 ---
-<!-- <ul class="wikiMenu">
-  {% for p in site.pages %}
-    {% if p.menu == "wiki" %}
-    <li><a class="post-link" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
-    {% endif %}
-  {% endfor %}
-</ul>
- -->
-{% assign guides_size = site.data.guides | size | minus: 1 %}
 
-
-{% for index in (0..guides_size) %}
-  {% assign guide = site.data.guides[index] %}
-  {% assign guide_pg_length = guide.pages | size | minus: 1 %}
-    {% if guide_pg_length > 0 %}
-      <ul><li>{{guide.title}}</li>
-  
-      <ol>
-        {% for index_j in (0..guide_pg_length) %}
-        <li><a class="post-link" href="{{ guide.pages[index_j].path | prepend: site.baseurl }}">{{guide.pages[index_j].name}}</a></li>
-          <!-- <li>{{guide.pages[index_j].name}}</li> -->
+<div class="col-sm-4 col-md-3 sidebar">
+    <div class="mini-submenu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+    <div class="list-group">
+        <span href="#" class="list-group-item active">
+            Hello Wiki
+            <span class="pull-right" id="slide-submenu">
+                <i class="fa fa-times"></i>
+            </span>
+        </span>
+        {% for p in site.pages %}
+            {% if p.menu == "wiki" %}
+                <a href="{{ p.url | prepend: site.baseurl }}" class="list-group-item">
+                    <i class="fa fa-comment-o"></i> {{ p.title }}
+                </a>
+            {% endif %}
         {% endfor %}
-      </ol>
-      </ul>
-    {% else %}
-      <ul><li><a class="post-link" href="{{ guide.pages[0].path | prepend: site.baseurl }}">{{guide.title}}</a></li>
 
-      </ul>
-    {% endif %}
-  
-    
-{% endfor %}
+        <span href="#" class="list-group-item active">
+            GNS Wiki
+            <span class="pull-right" id="slide-submenu">
+                <i class="fa fa-times"></i>
+            </span>
+        </span>
+        {% for p in site.pages %}
+            {% if p.menu == "wiki2" %}
+                <a href="{{ p.url | prepend: site.baseurl }}" class="list-group-item">
+                    <i class="fa fa-comment-o"></i> {{ p.title }}
+                </a>
+            {% endif %}
+        {% endfor %}
+        {% assign guides_size = site.data.guides | size | minus: 1 %}
 
+        <span href="#" class="list-group-item active">
+            Guide File Path
+            <span class="pull-right" id="slide-submenu">
+                <i class="fa fa-times"></i>
+            </span>
+        </span>
+
+        {% for index in (0..guides_size) %}
+          {% assign guide = site.data.guides[index] %}
+          {% assign guide_pg_length = guide.pages | size | minus: 1 %}
+            {% if guide_pg_length > 0 %}
+                <span href="#" class="list-group-item active">
+                    {{guide.title}}
+                    <span class="pull-right" id="slide-submenu">
+                        <i class="fa fa-times"></i>
+                    </span>
+                </span>
+              
+          
+              
+                {% for index_j in (0..guide_pg_length) %}
+                <a href="{{ guide.pages[index_j].path | prepend: site.baseurl }}" class="list-group-item">
+                    <i class="fa fa-comment-o"></i> {{guide.pages[index_j].name}}
+                </a>
+                <!-- <li><a class="post-link" href="{{ guide.pages[index_j].path | prepend: site.baseurl }}">{{guide.pages[index_j].name}}</a></li> -->
+                  <!-- <li>{{guide.pages[index_j].name}}</li> -->
+                {% endfor %}
+              
+            {% else %}
+                <span href="#" class="list-group-item active">
+                    <a class="post-link" href="{{ guide.pages[0].path | prepend: site.baseurl }}">{{guide.title}}</a>
+                    <span class="pull-right" id="slide-submenu">
+                        <i class="fa fa-times"></i>
+                    </span>
+                </span>
+              
+            {% endif %}
+          
+            
+        {% endfor %}
+
+
+
+
+    </div>        
+  </div>
 <!-- <div>
   <ul class="wikiMenu">
     {% for p in site.pages %}
@@ -44,6 +94,6 @@ layout: default
   </ul>
 </div>
  -->
-<div class="doc_content">
+<div class="col-sm-8 col-md-9 doc_content">
   {{ content }}
 </div>

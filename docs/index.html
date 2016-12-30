@@ -2,7 +2,8 @@
 layout: documentation
 title: Docs of hello
 ---
-<h3> All WIKI PAGES </h3>
+
+<!-- <h3> All WIKI PAGES FROM HELLO WIKI </h3>
 <ul class="wikiMenu">
   {% for p in site.pages %}
     {% if p.menu == "wiki" %}
@@ -11,7 +12,18 @@ title: Docs of hello
   {% endfor %}
 </ul>
 
+<h3> All WIKI PAGES FROM GNS WIKI </h3>
+<ul class="wikiMenu">
+  {% for p in site.pages %}
+    {% if p.menu == "wiki2" %}
+    <li><a class="post-link" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+ -->
 <h4> Based on a data file </h4>
+THIS IS THE DOCS FOLDER
+<!-- 
 {% assign guides_size = site.data.guides | size | minus: 1 %}
 
 
@@ -22,3 +34,4 @@ title: Docs of hello
     <li><a class="post-link" href="{{ guide.pages[index_j].path | prepend: site.baseurl }}">{{guide.pages[index_j].name}}</a></li>
   </ul>
 
+ -->
