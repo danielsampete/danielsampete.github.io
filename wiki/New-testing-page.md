@@ -5,4 +5,4 @@ wikiPageName: New-testing-page
 menu: wiki
 ---
 
-Testing
+Testing Page
