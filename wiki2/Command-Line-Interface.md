@@ -2,7 +2,7 @@
 layout: documentation
 title: Command Line Interface
 wikiPageName: Command-Line-Interface
-menu: wiki2
+menu: wiki
 ---
 
 Prerequisites: `JRE1.8+`, `bash`, `mongodb` (optional)

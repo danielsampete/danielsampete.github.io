@@ -2,7 +2,7 @@
 layout: documentation
 title: Home
 wikiPageName: Home
-menu: wiki2
+menu: wiki
 ---
 
 [Getting Started](https://github.com/MobilityFirst/GNS/wiki/Getting-Started)

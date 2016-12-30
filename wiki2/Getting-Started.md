@@ -2,7 +2,7 @@
 layout: documentation
 title: Getting Started
 wikiPageName: Getting-Started
-menu: wiki2
+menu: wiki
 ---
 
 
