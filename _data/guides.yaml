@@ -2,18 +2,21 @@
   title: Getting Started
   pages:
   - id: docs_getting_started
-    name: Overview
-    path: /wiki/Home-Page
+    name: Getting Started
+    path: /wiki2/Getting-Started
   - id: docs_install
-    name: Home Page
-    path: /wiki/Home
+    name: CLI
+    path: /wiki2/Command-Line-Interface
   - id: docs_usage
-    name: Trese
-    path: /wiki/Trese
+    name: Building-from-source
+    path: /wiki2/Building-from-source
+  - id: docs_usage
+    name: From Hello
+    path: /wiki/testing
 
 - id: docs_cli
-  title: CLI 
+  title: Troubleshooting 
   pages:
   - id: docs_yarn_workflow
     name: CLI
-    path: /wiki/eeee
+    path: /wiki2/Troubleshooting

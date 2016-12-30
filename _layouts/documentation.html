@@ -68,10 +68,8 @@ layout: default
               
             {% else %}
                 <span href="#" class="list-group-item active">
-                    <a class="post-link" href="{{ guide.pages[0].path | prepend: site.baseurl }}">{{guide.title}}</a>
-                    <span class="pull-right" id="slide-submenu">
-                        <i class="fa fa-times"></i>
-                    </span>
+                    <a class="list-group-item" href="{{ guide.pages[0].path | prepend: site.baseurl }}">{{guide.pages[0].name}}</a>
+                    
                 </span>
               
             {% endif %}
