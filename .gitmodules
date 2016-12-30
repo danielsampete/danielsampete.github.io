@@ -1,3 +1,6 @@
 [submodule "_wiki"]
 	path = _wiki
 	url = https://github.com/danielsampete/hello.wiki.git
+[submodule "_wiki2"]
+	path = _wiki2
+	url = https://github.com/MobilityFirst/GNS.wiki.git

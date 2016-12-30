@@ -2,7 +2,7 @@
 layout: documentation
 title: Building from source
 wikiPageName: Building-from-source
-menu: wiki
+menu: wiki2
 ---
 
 Prerequisites: `JDK1.8+`, `ant1.9+`

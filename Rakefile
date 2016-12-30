@@ -81,7 +81,7 @@ def copy_wiki_pages
         # used to transform links
         newWikiPage.puts "wikiPageName: #{wikiPageName}"
         # used to generate a wiki specific menu. see readme
-        newWikiPage.puts "menu: wiki"
+        newWikiPage.puts "menu: wiki2"
         newWikiPage.puts "---"
         newWikiPage.puts ""
         newWikiPage.puts fileContent
@@ -109,7 +109,7 @@ end
 # needs a public wiki
 task :wiki do |t|
     check_configuration
-    update_wiki_submodule
+    # update_wiki_submodule
     Rake::Task[:wikibuild].execute
     if g('commit_and_push') == true
         deploy
