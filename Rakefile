@@ -1,7 +1,77 @@
 require 'yaml'
 require 'uri'
+SOURCE = "_hello_wiki"
+DESTINATION = "_hellowikicollection"
+task :add_front_matter do
+  source = SOURCE
+  destination = DESTINATION
+  Dir.glob("#{source}/[0-9A-Za-z]*.md") do |wikiPage|
+    fileContent      = File.read(wikiPage)
+    p_order = /\[comment\]: # \"ordering: ([0-9])+/.match(fileContent)
+    title = /\[comment\]: # \"title: ([a-zA-Z0-9]|[ ]|[-]|[_])*/.match(fileContent)
+    title_value = title[0].split(": ")[2]
+    s_order = /\[comment\]: # \"secondary_ordering: ([0-9])+/.match(fileContent)
+    header = /\[comment\]: # \"header: ([01])+/.match(fileContent)
+    header_title = ""
+    title_name = ""
+    # print header[1]+"**"+(header[1]=="1").to_s+(!s_order.nil?).to_s+"\n"
+    primary_order = p_order[1]
+    wikiPageFileName = File.basename(wikiPage).gsub(" ","-")
+    wikiPagePath     = File.join("#{destination}", wikiPageFileName)
+    puts "generating #{wikiPagePath}"
+    open(wikiPagePath, 'w') do |newWikiPage|
+      newWikiPage.puts "---"
+      newWikiPage.puts "layout: documentation"
+      newWikiPage.puts "title: #{title_value}"
+      newWikiPage.puts "primary_order: #{primary_order}"
+      
+      if(header[1]=="1" and !s_order.nil?)
+        # print "Came in \n"+wikiPageFileName
+        header_title = /\[comment\]: # \"name: ([a-zA-Z0-9]|[ ]|[-]|[_])*/.match(fileContent)
+        title_name = header_title[0].split(": ")[2]
+        newWikiPage.puts "tab_title: #{title_name}"
+      end
+      if(s_order)
+        newWikiPage.puts "secondary_order: #{s_order[1]}"
+        print title_value + " " + p_order[1] + " " + s_order[1] + " " + title_name + "\n"
+      else
+        print title_value + " " + p_order[1] + " " + title_name + "\n"
+      end
 
-# use Jekyll configuration file
+      newWikiPage.puts "---"
+      newWikiPage.puts ""
+      newWikiPage.puts fileContent
+    end
+  end
+end
+
+task :wikiupdate do |t|
+  cd SOURCE do
+    pullCommand = 'git pull origin master'
+    puts "Updating wiki submodule of #{SOURCE}"
+    output = `#{pullCommand}`
+
+    if output.include? 'Already up-to-date'
+      abort("No update necessary") # exit
+    end
+    Rake::Task[:wikibuild].execute
+    deploy
+  end
+end
+
+
+def deploy
+    puts "deploying"
+    system "git add -A"
+    message = "Site wiki update #{Time.now.utc}"
+    puts "\n## Committing: #{message}"
+    system "git commit -m \"#{message}\""
+    puts "\n## Pushing website"
+    system "git push #{g('deploy_remote')} #{g('deploy_branch')}"
+    puts "\n## Github Pages deploy complete"
+end
+
+  # use Jekyll configuration file
 CONFIG = YAML.load_file("_config.yml")
 
 task :default => :build_dev
@@ -81,7 +151,7 @@ def copy_wiki_pages
         # used to transform links
         newWikiPage.puts "wikiPageName: #{wikiPageName}"
         # used to generate a wiki specific menu. see readme
-        newWikiPage.puts "menu: wiki"
+        newWikiPage.puts "menu: wiki2"
         newWikiPage.puts "---"
         newWikiPage.puts ""
         newWikiPage.puts fileContent
@@ -94,22 +164,11 @@ def build_jekyll
   system 'jekyll build'
 end
 
-def deploy
-    puts "deploying"
-    system "git add -A"
-    message = "Site wiki update #{Time.now.utc}"
-    puts "\n## Committing: #{message}"
-    system "git commit -m \"#{message}\""
-    puts "\n## Pushing website"
-    system "git push #{g('deploy_remote')} #{g('deploy_branch')}"
-    puts "\n## Github Pages deploy complete"
-end
-
 # synch repository wiki pages with Jekyll
 # needs a public wiki
 task :wiki do |t|
     check_configuration
-    # update_wiki_submodule
+    update_wiki_submodule
     Rake::Task[:wikibuild].execute
     if g('commit_and_push') == true
         deploy

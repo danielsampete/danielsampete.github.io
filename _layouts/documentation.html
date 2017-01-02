@@ -1,97 +1,41 @@
 ---
 layout: default
 ---
+{% assign projects = site.hellowikicollection | sort: "primary_order" %}
+<nav id="mysidebar_dani" class="col-sm-3 col-md-3 bs-docs-sidebar">
 
-<div class="col-sm-4 col-md-3 sidebar">
-    <div class="mini-submenu">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </div>
-    <div class="list-group">
-        <span href="#" class="list-group-item active">
-            Hello Wiki
-            <span class="pull-right" id="slide-submenu">
-                <i class="fa fa-times"></i>
-            </span>
-        </span>
-        {% for p in site.pages %}
-            {% if p.menu == "wiki" %}
-                <a href="{{ p.url | prepend: site.baseurl }}" class="list-group-item">
-                    <i class="fa fa-comment-o"></i> {{ p.title }}
-                </a>
-            {% endif %}
-        {% endfor %}
-
-        <span href="#" class="list-group-item active">
-            GNS Wiki
-            <span class="pull-right" id="slide-submenu">
-                <i class="fa fa-times"></i>
-            </span>
-        </span>
-        {% for p in site.pages %}
-            {% if p.menu == "wiki2" %}
-                <a href="{{ p.url | prepend: site.baseurl }}" class="list-group-item">
-                    <i class="fa fa-comment-o"></i> {{ p.title }}
-                </a>
-            {% endif %}
-        {% endfor %}
-        {% assign guides_size = site.data.guides | size | minus: 1 %}
-
-        <span href="#" class="list-group-item active">
-            Guide File Path
-            <span class="pull-right" id="slide-submenu">
-                <i class="fa fa-times"></i>
-            </span>
-        </span>
-
-        {% for index in (0..guides_size) %}
-          {% assign guide = site.data.guides[index] %}
-          {% assign guide_pg_length = guide.pages | size | minus: 1 %}
-            {% if guide_pg_length > 0 %}
-                <span href="#" class="list-group-item active">
-                    {{guide.title}}
-                    <span class="pull-right" id="slide-submenu">
-                        <i class="fa fa-times"></i>
-                    </span>
-                </span>
-              
-          
-              
-                {% for index_j in (0..guide_pg_length) %}
-                <a href="{{ guide.pages[index_j].path | prepend: site.baseurl }}" class="list-group-item">
-                    <i class="fa fa-comment-o"></i> {{guide.pages[index_j].name}}
-                </a>
-                <!-- <li><a class="post-link" href="{{ guide.pages[index_j].path | prepend: site.baseurl }}">{{guide.pages[index_j].name}}</a></li> -->
-                  <!-- <li>{{guide.pages[index_j].name}}</li> -->
+    <ul id="sidebar" class="nav nav-stacked fixed">
+        {% assign items_grouped = site.hellowikicollection | group_by: 'primary_order' | sort: 'name' %}
+        {% for group in items_grouped %}
+          <li>
+          {% assign items = group.items %}
+          {% assign item_size = group.items | size %}
+          {% if item_size  > 1 %}
+            {% assign items = items | sort: 'secondary_order' %}
+            {% assign title_name = items[0].tab_title %}
+            <a href="#">{{title_name}}</a>
+            <ul class="nav nav-stacked">
+                {% for item in items %}
+                    <li><a href="{{ item.url | prepend: site.baseurl }}">{{item.title}}</a></li>
                 {% endfor %}
-              
-            {% else %}
-                <span href="#" class="list-group-item active">
-                    <a class="list-group-item" href="{{ guide.pages[0].path | prepend: site.baseurl }}">{{guide.pages[0].name}}</a>
-                    
-                </span>
-              
-            {% endif %}
+            </ul>
+          {% else %}
+            {% assign title_name = items[0].title %}
+            <a href="{{ items[0].url | prepend: site.baseurl }}">{{title_name}}</a>
+
+          {% endif %}
+
           
-            
-        {% endfor %}
+
+          
+          </li>
+        
+        {% endfor %}   
+
+    </ul>
+</nav>
 
 
-
-
-    </div>        
-  </div>
-<!-- <div>
-  <ul class="wikiMenu">
-    {% for p in site.pages %}
-      {% if p.menu == "wiki" %}
-      <li><a class="post-link" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>
- -->
-<div class="col-sm-8 col-md-9 doc_content">
+<div class="col-sm-9 col-md-9 doc_content">
   {{ content }}
 </div>

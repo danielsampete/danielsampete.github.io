@@ -4,6 +4,23 @@ kramdown:
   input: GFM
   hard_wrap: false
 permalink: /blog/:year/:month/:day/:title
+collections:
+  hellowikicollection:
+    output: true
+defaults:
+  -
+    scope:
+      path: "gns_wiki" # an empty string here means all files in the project
+    values:
+      layout: documentation
+      menu: "gns_wiki"
+      title: "Documentation"
+  - 
+    scope:
+      path: "hello_wiki"
+      type: hellowikicollection
+    values:
+      layout: documentation
 
 wikiToJekyll:
 
@@ -46,5 +63,5 @@ wikiToJekyll:
   wiki_dest: "wiki2"
 
   # commit and push to Jekyll repository after wiki synchronisation
-  commit_and_push: true
+  commit_and_push: false
 

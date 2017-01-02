@@ -2,7 +2,7 @@
 layout: documentation
 title: FAQ
 wikiPageName: FAQ
-menu: wiki
+menu: wiki2
 ---
 
 TBD
