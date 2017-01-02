@@ -4,3 +4,6 @@
 [submodule "_wiki2"]
 	path = _wiki2
 	url = https://github.com/MobilityFirst/GNS.wiki.git
+[submodule "gns_wiki"]
+	path = gns_wiki
+	url = https://github.com/MobilityFirst/GNS.wiki.git
