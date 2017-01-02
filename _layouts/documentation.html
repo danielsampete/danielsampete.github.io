@@ -5,7 +5,7 @@ layout: default
 <nav id="mysidebar_dani" class="col-sm-3 col-md-3 bs-docs-sidebar">
 
     <ul id="sidebar" class="nav nav-stacked fixed">
-        {% assign items_grouped = site.hellowikicollection | sort: 'primary_order' |  group_by: 'primary_order'  %}
+        {% assign items_grouped = site.hellowikicollection | group_by: 'primary_order' | sort: 'name' %}
         {% for group in items_grouped %}
           <li>
           {% assign items = group.items %}
