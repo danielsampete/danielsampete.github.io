@@ -15,7 +15,7 @@ Welcome to the hello wiki!
 Test triple backticks
 ```ruby
 def test
-   t=90
+   t=902
 end
 ```
 
