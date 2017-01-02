@@ -57,9 +57,9 @@ task :wikiupdate do |t|
     puts "Updating wiki submodule of #{SOURCE}"
     output = `#{pullCommand}`
 
-    if output.include? 'Already up-to-date'
-      abort("No update necessary") # exit
-    end
+    # if output.include? 'Already up-to-date'
+    #   abort("No update necessary") # exit
+    # end
   end
   Rake::Task[:add_front_matter].execute
   deploy
