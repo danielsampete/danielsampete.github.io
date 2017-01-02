@@ -3,7 +3,6 @@ require 'uri'
 
   # use Jekyll configuration file
 CONFIG = YAML.load_file("_config.yml")
-USERNAME = "danie"
 task :default => :build_dev
 
 
