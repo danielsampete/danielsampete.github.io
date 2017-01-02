@@ -3,9 +3,8 @@ layout: default
 ---
 {% assign projects = site.hellowikicollection | sort: "primary_order" %}
 <nav id="mysidebar_dani" class="col-sm-3 col-md-3 bs-docs-sidebar">
-
     <ul id="sidebar" class="nav nav-stacked fixed">
-        {% assign items_grouped = site.hellowikicollection | group_by: 'primary_order' | sort: 'name' %}
+        {% assign items_grouped = site.hellowikicollection | sort: 'primary_order' | group_by: 'primary_order' %}
         {% for group in items_grouped %}
           <li>
           {% assign items = group.items %}
@@ -22,16 +21,9 @@ layout: default
           {% else %}
             {% assign title_name = items[0].title %}
             <a href="{{ items[0].url | prepend: site.baseurl }}">{{title_name}}</a>
-
           {% endif %}
-
-          
-
-          
           </li>
-        
         {% endfor %}   
-
     </ul>
 </nav>
 
