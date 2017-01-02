@@ -61,7 +61,7 @@ task :wikiupdate do |t|
     if output.include? 'Already up-to-date'
       abort("No update necessary") # exit
     end
-    Rake::Task[:wikibuild].execute
+    Rake::Task[:add_front_matter].execute
     deploy
   end
 end
