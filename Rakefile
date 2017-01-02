@@ -1,5 +1,12 @@
 require 'yaml'
 require 'uri'
+
+  # use Jekyll configuration file
+CONFIG = YAML.load_file("_config.yml")
+
+task :default => :build_dev
+
+
 SOURCE = "_hello_wiki" 
 DESTINATION = "_hellowikicollection"
 task :add_front_matter do
@@ -70,11 +77,6 @@ def deploy
     system "git push #{g('deploy_remote')} #{g('deploy_branch')}"
     puts "\n## Github Pages deploy complete"
 end
-
-  # use Jekyll configuration file
-CONFIG = YAML.load_file("_config.yml")
-
-task :default => :build_dev
 
 # == Helpers ===========================================
 def check_configuration
