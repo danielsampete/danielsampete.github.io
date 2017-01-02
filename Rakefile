@@ -1,6 +1,6 @@
 require 'yaml'
 require 'uri'
-SOURCE = "_hello_wiki"
+SOURCE = "_hello_wiki" 
 DESTINATION = "_hellowikicollection"
 task :add_front_matter do
   source = SOURCE
