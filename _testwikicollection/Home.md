@@ -94,4 +94,18 @@ Check the following in the file _layouts/documentation.html
 {% assign items_grouped = site.testwikicollection | sort: 'primary_order' | group_by: 'primary_order' %}
 ```
 
+Step 7:
+
 Add crontab
+
+```
+crontab -e
+```
+Add the following on the editor that appears
+
+Based on where your rake executable is please add it. If u use rvm , it should be similar to 
+*/01 * * * * cd /Users/danielsampetethiyagu/github/danielsampete.github.io && /Users/danielsampetethiyagu/.rvm/wrappers/ruby-2.3.3@global/rake wikiupdate >> /Users/danielsampetethiyagu/github/logfile 2>&1 ; date >> /Users/danielsampetethiyagu/github/logfile
+
+The above works well on Linux machines, but was facing some difficulties with Mac OS.
+
+rake wikiupdate takes care of updating the repository by pull and then adding the files from pulled directory into the collections directory and adding the frontmatter yaml variables to the new files
