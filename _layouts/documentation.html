@@ -12,7 +12,7 @@ layout: default
           {% if item_size  > 1 %}
             {% assign items = items | sort: 'secondary_order' %}
             {% assign title_name = items[0].tab_title %}
-            <a href="#">{{title_name}}</a>
+            <a href="{{ items[0].url | prepend: site.baseurl }}">{{title_name}}</a>
             <ul class="nav nav-stacked">
                 {% for item in items %}
                     <li><a href="{{ item.url | prepend: site.baseurl }}">{{item.title}}</a></li>
