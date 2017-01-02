@@ -3,7 +3,7 @@ require 'uri'
 
   # use Jekyll configuration file
 CONFIG = YAML.load_file("_config.yml")
-
+USERNAME = "danie"
 task :default => :build_dev
 
 
@@ -74,7 +74,7 @@ def deploy
     puts "\n## Committing: #{message}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing website"
-    system "git push #{g('deploy_remote')} #{g('deploy_branch')}"
+    system "git push origin master"
     puts "\n## Github Pages deploy complete"
 end
 
