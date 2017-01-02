@@ -1,11 +1,11 @@
 ---
 layout: documentation
 title: A NEW PAGE
-primary_order: 1
+primary_order: 10
 ---
 
 [comment]: # "title: A NEW PAGE"
-[comment]: # "ordering: 1"
+[comment]: # "ordering: 10"
 [comment]: # "header: 1"
 
 Welcome to the hello wiki!

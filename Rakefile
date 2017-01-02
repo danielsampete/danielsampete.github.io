@@ -5,7 +5,7 @@ DESTINATION = "_hellowikicollection"
 task :add_front_matter do
   source = SOURCE
   destination = DESTINATION
-  Dir.glob("#{source}/[0-9A-Za-z]*.md") do |wikiPage|
+  Dir.glob("#{source}/*.md") do |wikiPage|
     fileContent      = File.read(wikiPage)
     p_order = /\[comment\]: # \"ordering: ([0-9])+/.match(fileContent)
     title = /\[comment\]: # \"title: ([a-zA-Z0-9]|[ ]|[-]|[_])*/.match(fileContent)
@@ -14,8 +14,7 @@ task :add_front_matter do
     header = /\[comment\]: # \"header: ([01])+/.match(fileContent)
     header_title = ""
     title_name = ""
-    # print header[1]+"**"+(header[1]=="1").to_s+(!s_order.nil?).to_s+"\n"
-    primary_order = p_order[1]
+    primary_order = p_order[0].split(": ")[2]
     wikiPageFileName = File.basename(wikiPage).gsub(" ","-")
     wikiPagePath     = File.join("#{destination}", wikiPageFileName)
     puts "generating #{wikiPagePath}"
@@ -32,10 +31,11 @@ task :add_front_matter do
         newWikiPage.puts "tab_title: #{title_name}"
       end
       if(s_order)
-        newWikiPage.puts "secondary_order: #{s_order[1]}"
-        print title_value + " " + p_order[1] + " " + s_order[1] + " " + title_name + "\n"
+        secondary_order = s_order[0].split(": ")[2]
+        newWikiPage.puts "secondary_order: #{secondary_order}"
+        print title_value + " " + primary_order + " " + secondary_order + " " + title_name + "\n"
       else
-        print title_value + " " + p_order[1] + " " + title_name + "\n"
+        print title_value + " " + primary_order + " " + "\n"
       end
 
       newWikiPage.puts "---"
