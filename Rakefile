@@ -81,7 +81,7 @@ def copy_wiki_pages
         # used to transform links
         newWikiPage.puts "wikiPageName: #{wikiPageName}"
         # used to generate a wiki specific menu. see readme
-        newWikiPage.puts "menu: wiki2"
+        newWikiPage.puts "menu: wiki"
         newWikiPage.puts "---"
         newWikiPage.puts ""
         newWikiPage.puts fileContent

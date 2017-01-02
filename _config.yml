@@ -8,7 +8,7 @@ permalink: /blog/:year/:month/:day/:title
 wikiToJekyll:
 
   # your user Github Name
-  user_name: danielsam.pete@chronus.com
+  user_name: danielsamfdo@gmail.com
 
   # your repository Name
   repository_name: danielsampete.github.io
