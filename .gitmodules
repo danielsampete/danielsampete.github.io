@@ -10,3 +10,6 @@
 [submodule "_hello_wiki"]
 	path = _hello_wiki
 	url = https://github.com/danielsampete/hello.wiki.git
+[submodule "_test_wiki"]
+	path = _test_wiki
+	url = https://github.com/danielsamfdo/testwiki.wiki.git

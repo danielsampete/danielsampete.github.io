@@ -7,8 +7,8 @@ CONFIG = YAML.load_file("_config.yml")
 task :default => :build_dev
 
 
-SOURCE = "_hello_wiki" 
-DESTINATION = "_hellowikicollection"
+SOURCE = "_test_wiki" 
+DESTINATION = "_testwikicollection"
 task :add_front_matter do
   source = SOURCE
   destination = DESTINATION

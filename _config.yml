@@ -5,13 +5,13 @@ kramdown:
   hard_wrap: false
 permalink: /blog/:year/:month/:day/:title
 collections:
-  hellowikicollection:
+  testwikicollection:
     output: true
 defaults:
   - 
     scope:
-      path: "hello_wiki"
-      type: hellowikicollection
+      path: "test_wiki"
+      type: testwikicollection
     values:
       layout: documentation
 
