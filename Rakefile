@@ -53,15 +53,15 @@ task :add_front_matter do
 end
 
 task :wikiupdate do |t|
-  cd SOURCE do
-    pullCommand = 'git pull origin master'
-    puts "Updating wiki submodule of #{SOURCE}"
-    output = `#{pullCommand}`
+  # cd SOURCE do
+  #   pullCommand = 'git pull origin master'
+  #   puts "Updating wiki submodule of #{SOURCE}"
+  #   output = `#{pullCommand}`
 
-    if output.include? 'Already up-to-date'
-      abort("No update necessary") # exit
-    end
-  end
+  #   if output.include? 'Already up-to-date'
+  #     abort("No update necessary") # exit
+  #   end
+  # end
   Rake::Task[:add_front_matter].execute
   deploy
 end
