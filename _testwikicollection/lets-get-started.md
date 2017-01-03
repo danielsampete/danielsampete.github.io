@@ -2,13 +2,13 @@
 layout: documentation
 title: GETTIN STARTED NEW PAGE
 primary_order: 15
-tab_title: Testing Started
+tab_title: Testing Started 2
 secondary_order: 1
 ---
 
 [comment]: # "title: GETTIN STARTED NEW PAGE"
 [comment]: # "ordering: 15"
-[comment]: # "name: Testing Started" 
+[comment]: # "name: Testing Started 2" 
 [comment]: # "secondary_ordering: 1" 
 [comment]: # "header: 1"  
 NEW GETTING STARTED
