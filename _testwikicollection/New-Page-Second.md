@@ -8,7 +8,6 @@ secondary_order: 2
 [comment]: # "title: CORE TESTING PAGE"
 [comment]: # "ordering: 15"
 [comment]: # "header: 0"
-[comment]: # "name: Testing Started" 
 [comment]: # "secondary_ordering: 2"
 
 

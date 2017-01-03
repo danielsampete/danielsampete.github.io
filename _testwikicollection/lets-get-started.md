@@ -2,10 +2,14 @@
 layout: documentation
 title: GETTIN STARTED NEW PAGE
 primary_order: 15
+tab_title: Testing Started
+secondary_order: 1
 ---
 
 [comment]: # "title: GETTIN STARTED NEW PAGE"
 [comment]: # "ordering: 15"
+[comment]: # "name: Testing Started" 
+[comment]: # "secondary_ordering: 1" 
 [comment]: # "header: 1"  
 NEW GETTING STARTED
 Welcome to the hello wiki 12220 lesson! :sdfasdfasdf
