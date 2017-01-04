@@ -13,3 +13,6 @@
 [submodule "_test_wiki"]
 	path = _test_wiki
 	url = https://github.com/danielsamfdo/testwiki.wiki.git
+[submodule "documentation_mkdocs/docs/_test_wiki"]
+	path = documentation_mkdocs/docs/_test_wiki
+	url = https://github.com/danielsamfdo/testwiki.wiki.git

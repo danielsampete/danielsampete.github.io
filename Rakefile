@@ -12,6 +12,7 @@ task :add_front_matter do
   source = SOURCE
   destination = DESTINATION
   Dir.glob("#{source}/*.md") do |wikiPage|
+    print wikiPage
     fileContent      = File.read(wikiPage)
     p_order = /\[comment\]: # \"ordering: ([0-9])+/.match(fileContent)
     title = /\[comment\]: # \"title: ([a-zA-Z0-9]|[ ]|[-]|[_])*/.match(fileContent)
@@ -57,9 +58,9 @@ task :wikiupdate do |t|
     puts "Updating wiki submodule of #{SOURCE}"
     output = `#{pullCommand}`
 
-    if output.include? 'Already up-to-date'
-      abort("No update necessary") # exit
-    end
+    # if output.include? 'Already up-to-date'
+    #   abort("No update necessary") # exit
+    # end
   end
   Rake::Task[:add_front_matter].execute
   deploy
